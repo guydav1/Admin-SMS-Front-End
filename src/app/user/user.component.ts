@@ -38,10 +38,10 @@ export class UserComponent implements OnInit {
 
 
   onSubmit() {
-    this.userService.update(this.user.id, {
-      userName: this.user.userName,
-      password: 
-    })
+    // this.userService.update(this.user.id, {
+    //   userName: this.user.userName,
+    //   password: 
+    // })
   }
 
   deleteUser() {
