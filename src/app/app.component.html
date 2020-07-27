@@ -1,12 +1,12 @@
 <div class="wrapper wrapper-full-page">
-    <app-sidebar *ngIf="showSidebar"></app-sidebar>
-    <div class="main-panel" [class.full-page]="!showSidebar">
-      <app-navbar *ngIf="showNavbar"></app-navbar>
-  
-          <app-spinner *ngIf="isLoading"></app-spinner>
-          <div contentAnimate *ngIf="!isLoading">
-            <router-outlet></router-outlet>
-          </div>
-          <app-footer *ngIf="showFooter"></app-footer>
-        </div>
+  <app-sidebar *ngIf="showSidebar"></app-sidebar>
+  <div class="main-panel" [class.full-page]="!showSidebar">
+    <app-navbar *ngIf="showNavbar"></app-navbar>
+
+    <app-spinner *ngIf="isLoading"></app-spinner>
+    <div contentAnimate *ngIf="!isLoading">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer *ngIf="showFooter"></app-footer>
   </div>
+</div>
