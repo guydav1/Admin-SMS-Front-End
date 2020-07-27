@@ -1,28 +1,54 @@
+<div class="register-page" style="background-image: url(../../../assets/img/register.jpeg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 ml-auto mr-auto">
+        <div class="card">
+          <h2 class="card-title text-center">Login</h2>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-5 ml-auto">
+                <form class="form" (ngSubmit)="onSubmit()" #f="ngForm">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">person</i>
+                        </span>
+                      </div>
+                      <input ngModel #user="ngModel" type="text" name="userName" id="userName" class="form-control"
+                        placeholder="Enter Username" required
+                        [ngStyle]="{'border':'none','border-bottom':user.invalid && user.touched ? '2px solid red' : '' }">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">lock</i>
+                        </span>
+                      </div>
+                      <input ngModel type="password" name="password" id="password" class="form-control"
+                        placeholder="Enter Password" #pass="ngModel" required
+                        [ngStyle]="{'border':'none','border-bottom':pass.invalid && pass.touched ? '2px solid red' : '' }">
+                    </div>
+                  </div>
 
-<div class="container">
-    <div class="row align-items-center">
-      <div class="col-3"></div>
-      <div class="col-6">
-        <div class="alert alert-danger" *ngIf="error">
-          <span *ngIf="error === 400">Username or Password are incorrect</span>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-round mt-4"
+                      [disabled]="loading || !f.valid">Login</button>
+                  </div>
+                  <div class="text-center pt-2">
+                    Don't have an account? <a routerLink="../register">Register</a>.
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-5 mr-auto">
+
+              </div>
+            </div>
+          </div>
         </div>
-        <form (ngSubmit)="onSubmit()" #f="ngForm">
-          <div class="form-group">
-            <label for="userName">Username:</label>
-            <input ngModel #user="ngModel" type="text" name="userName" id="userName" class="form-control" placeholder="Enter Username" required
-            [ngStyle]="{'border':user.invalid && user.touched ? '2px solid red' : '' }">
-          </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input ngModel type="password" name="password" id="password" class="form-control"
-              placeholder="Enter Password" #pass="ngModel" required [ngStyle]="{'border':pass.invalid && pass.touched ? '2px solid red' : '' }">
-          </div>
-          Dont have an account?<a routerLink="../register">Register</a>
-          <button type="submit" class="btn btn-primary" [disabled]="loading || !f.valid">Login</button>
-        </form>
-        <div class="alert alert-info" *ngIf="f.invalid && f.touched">All fields are required!</div>
       </div>
-      <div class="col-3"></div>
     </div>
   </div>
-  
+</div>

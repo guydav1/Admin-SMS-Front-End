@@ -4,7 +4,8 @@ import { NgForm } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['../register/register.component.css']
 })
 export class LoginComponent implements OnInit {
   @ViewChild('f') form :NgForm;

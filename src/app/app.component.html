@@ -1,22 +1,16 @@
-<div class="d-flex" id="wrapper">
+<div class="wrapper">
 
 
-  <div class="bg-light border-right" id="sidebar-wrapper">
-    <app-sidebar *ngIf="showSidebar"></app-sidebar>
+  <div class="bg-light border-right" id="sidebar-wrapper" *ngIf="showSidebar">
+    <app-sidebar ></app-sidebar>
   </div>
-
-  <div id="page-content-wrapper" class="d-flex flex-column">
-
     <app-navbar *ngIf="showNavbar"></app-navbar>
 
-    <div class="container-fluid mb-auto mt-4">
       <div class="content-wrapper">
         <app-spinner *ngIf="isLoading"></app-spinner>
         <div contentAnimate *ngIf="!isLoading">
           <router-outlet></router-outlet>
         </div>
       </div>
-    </div>
     <app-footer *ngIf="showFooter"></app-footer>
   </div>
-</div>
