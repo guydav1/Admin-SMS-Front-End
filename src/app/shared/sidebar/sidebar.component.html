@@ -13,16 +13,16 @@
   </div>
   <div class="sidebar-wrapper">
       <ul class="nav">
-          <li class="nav-item ">
-              <a class="nav-link" href="./dashboard.html">
+          <li class="nav-item " [routerLinkActive]="['active']">
+              <a class="nav-link" routerLink="./dashboard">
                   <i class="material-icons">dashboard</i>
                   <p>Dashboard</p>
               </a>
           </li>
-          <li class="nav-item active">
-              <a class="nav-link" href="./dashboard.html">
-                  <i class="material-icons">dashboard</i>
-                  <p>Dashboard</p>
+          <li class="nav-item" [routerLinkActive]="['active']">
+              <a class="nav-link" routerLink="./users">
+                  <i class="material-icons">group</i>
+                  <p>Users</p>
               </a>
           </li>
       </ul>

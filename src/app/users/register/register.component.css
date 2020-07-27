@@ -1,18 +1,31 @@
-input.ng-touched.ng-invalid{
+input.ng-touched.ng-invalid {
   border: 2px solid red;
 }
 
+
 .register-page {
-  padding: 7vh 0!important;
+  padding: 7vh 0 !important;
   background-position: top;
   position: relative;
   height: 100%;
+
   background-size: cover;
+  background-image: url(../../../assets/img/register-2.jpg);
+  /* background-repeat: no-repeat; */
   min-height: 100vh;
   max-height: 1000px;
   margin: 0;
   border: 0;
   color: #fff;
+
+
+}
+
+@media (max-width: 991px) {
+
+  .register-page {
+    min-height: fit-content !important;
+  }
 }
 
 .container {
@@ -20,6 +33,13 @@ input.ng-touched.ng-invalid{
   z-index: 3;
   height: 100%;
 }
+
+
+@media screen and (max-width: 991px){
+.container {
+    padding-top: 70px;
+    padding-bottom: 200px;
+}}
 
 .row {
   display: flex;
@@ -30,7 +50,7 @@ input.ng-touched.ng-invalid{
 
 .register-page .card {
   border-radius: 6px;
-  box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
   margin-bottom: 100px;
   padding: 40px 0;
   margin-top: 15vh;
@@ -38,7 +58,8 @@ input.ng-touched.ng-invalid{
 
 .card {
   color: #333;
-  background: #fff;
+  background-color: rgba(255, 255, 255, 0.85);
+
   width: 100%;
   font-size: .875rem;
 }
@@ -55,11 +76,12 @@ input.ng-touched.ng-invalid{
   position: relative;
 }
 
-.h2, h2 {
+.h2,
+h2 {
   font-size: 2.25rem;
 }
 
-.card form{
+.card form {
   margin: 0;
 }
 
@@ -95,7 +117,7 @@ input.ng-touched.ng-invalid{
   border-radius: 0;
 }
 
-.input-group .input-group-text{
+.input-group .input-group-text {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,8 +137,8 @@ input.ng-touched.ng-invalid{
   width: 1%;
   margin-bottom: 0;
 
-  background: no-repeat bottom,50% calc(100% - 1px);
-  background-size: 0 100%,100% 100%;
+  background: no-repeat bottom, 50% calc(100% - 1px);
+  background-size: 0 100%, 100% 100%;
   border: 0;
   height: 36px;
   transition: background 0s ease-out;
@@ -126,8 +148,9 @@ input.ng-touched.ng-invalid{
   font-size: 14px;
 }
 
-.form-control, .is-focused .form-control {
-  background-image: linear-gradient(0deg,#9c27b0 2px,rgba(156,39,176,0) 0),linear-gradient(0deg,#d2d2d2 1px,hsla(0,0%,82%,0) 0);
+.form-control,
+.is-focused .form-control {
+  background-image: linear-gradient(0deg, #9c27b0 2px, rgba(156, 39, 176, 0) 0), linear-gradient(0deg, #d2d2d2 1px, hsla(0, 0%, 82%, 0) 0);
 }
 
 .form-check {

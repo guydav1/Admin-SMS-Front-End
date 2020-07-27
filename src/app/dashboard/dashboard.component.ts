@@ -1,4 +1,5 @@
-import { UserService } from './../services/user.service';
+import { NgForm } from '@angular/forms';
+import { UserService } from '../services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   users: any[] = [];
   error:string = null;
+  loading: boolean = true;
 
   searchInput: string = '';
   constructor(private userService : UserService) {}
@@ -16,9 +18,11 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getAll().subscribe(res=>{
       this.users = this.users.concat(res);
+      this.loading = false;
     }, err=> {
       console.log(err);
       this.error = err.message
+      this.loading = false;
     })    
   }
 

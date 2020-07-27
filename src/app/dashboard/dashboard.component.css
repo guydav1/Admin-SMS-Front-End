@@ -1,1 +1,6 @@
 tbody tr:hover { cursor: pointer; }
+
+.content {
+    padding: 30px 15px;
+    min-height: 80vh;
+}

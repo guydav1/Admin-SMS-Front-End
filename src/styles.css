@@ -4,8 +4,8 @@
 @import '../node_modules/font-awesome/css/font-awesome.css';
 
 .app-container {
-    min-height: 320px;
-    overflow: hidden;
+  min-height: 320px;
+  overflow: hidden;
 }
 
 /*!
@@ -14,9 +14,9 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
- #wrapper {
-    overflow-x: hidden;
- }
+#wrapper {
+  overflow-x: hidden;
+}
 
 #sidebar-wrapper {
   min-height: 100vh;
@@ -61,30 +61,41 @@
 
 
 body {
-    margin: 0;
-    font-family: Roboto,Helvetica,Arial,sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    text-align: left;
-    background-color: #fafafa;
+  margin: 0;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fafafa;
 }
 
-.h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
-    font-family: Roboto,Helvetica,Arial,sans-serif;
-    font-weight: 300;
-    line-height: 1.5em;
+.h1,
+.h2,
+.h3,
+.h4,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.5em;
 }
 
 div {
-    display: block;
+  display: block;
 }
 
 li {
   display: list-item;
   text-align: -webkit-match-parent;
 }
+
 ul {
   display: block;
   list-style-type: disc;
@@ -93,5 +104,19 @@ ul {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
+}
+
+@media (max-width: 991px) {
+
+  body,
+  html {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 991px) {
+  body {
+    position: relative;
+  }
 }
 

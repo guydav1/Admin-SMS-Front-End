@@ -1,7 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { registerLocaleData } from '@angular/common';
 import { NgForm } from '@angular/forms';
 
 @Component({
