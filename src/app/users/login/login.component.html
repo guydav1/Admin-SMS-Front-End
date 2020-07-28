@@ -1,47 +1,53 @@
-<div class="register-page full-page">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5 ml-auto mr-auto">
-        <div class="card">
-          <h2 class="card-title text-center">Login</h2>
-          <div class="card-body">
-            <div class="row">
-              <div class="ml-auto mr-auto">
-                <form class="form" (ngSubmit)="onSubmit()" #f="ngForm">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">person</i>
-                        </span>
-                      </div>
-                      <input ngModel #user="ngModel" type="text" name="userName" id="userName" class="form-control"
-                        placeholder="Enter Username" required
-                        [ngStyle]="{'border':'none','border-bottom':user.invalid && user.touched ? '2px solid red' : '' }">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="material-icons">lock</i>
-                        </span>
-                      </div>
-                      <input ngModel type="password" name="password" id="password" class="form-control"
-                        placeholder="Enter Password" #pass="ngModel" required
-                        [ngStyle]="{'border':'none','border-bottom':pass.invalid && pass.touched ? '2px solid red' : '' }">
-                    </div>
-                  </div>
+<div class="container-fluid">
+  <div class="row h-100 text-center">
+    <div class="col-md-3 mx-auto my-auto ">
+      <div class="card">
+        <h2 class="card-title">Login</h2>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-auto mx-auto">
 
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-round mt-4"
-                      [disabled]="loading || !f.valid">Login</button>
+              <form class="form" (ngSubmit)="onSubmit()" #f="ngForm">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">person</i>
+                      </span>
+                    </div>
+                    <input ngModel #user="ngModel" type="text" name="userName" id="userName" class="form-control"
+                      placeholder="Enter Username" required>
                   </div>
-                  <div class="text-center pt-2">
-                    Don't have an account? <a routerLink="../register">Register</a>.
+                  <div class="text-center" *ngIf="user.invalid && (user.dirty || user.touched)">
+                    <small class="text-danger" *ngIf="user.errors.required">Username is
+                      required.</small>
                   </div>
-                </form>
-              </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock</i>
+                      </span>
+                    </div>
+                    <input ngModel type="password" name="password" id="password" class="form-control"
+                      placeholder="Enter Password" #pass="ngModel" required>
+                  </div>
+                  <div class="text-center" *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                    <small class="text-danger" *ngIf="pass.errors.required">Password is
+                        required.</small>
+                </div>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary btn-round mt-4"
+                    [disabled]="loading || !f.valid">Login</button>
+                </div>
+                <div class="text-center pt-2">
+                  Don't have an account? <a routerLink="../register">Register</a>.
+                </div>
+              </form>
+
             </div>
           </div>
         </div>
