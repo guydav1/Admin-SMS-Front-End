@@ -2,6 +2,10 @@
   <div class="row h-100 text-center">
     <div class="col-md-3 mx-auto my-auto ">
       <div class="card">
+        <ngb-alert *ngIf="error !== null" type="danger" [dismissible]="false">
+          <span *ngIf="error === 500">Username or Password were incorrect</span>
+          <span *ngIf="error === 0">Unexpected Error, Please try again later</span>
+        </ngb-alert>
         <h2 class="card-title">Login</h2>
         <div class="card-body">
           <div class="row">
@@ -41,13 +45,14 @@
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary btn-round mt-4"
-                    [disabled]="loading || !f.valid">Login</button>
+                    [disabled]="loading || !f.valid">Login
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  </button>
                 </div>
                 <div class="text-center pt-2">
                   Don't have an account? <a routerLink="../register">Register</a>.
                 </div>
               </form>
-
             </div>
           </div>
         </div>

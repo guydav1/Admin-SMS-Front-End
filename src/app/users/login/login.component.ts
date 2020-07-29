@@ -19,10 +19,12 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(){
+    this.loading = true;
     this.userService.login(this.form.value.userName, this.form.value.password).subscribe(res => {
       this.router.navigate(['../']);
     }, err => {
-      this.error = err.status
+      this.error = err.status;
+      this.loading = false;
       console.log(err);
     })
   }

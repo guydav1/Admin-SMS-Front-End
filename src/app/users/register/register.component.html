@@ -59,7 +59,8 @@
                                       <input [(ngModel)]="password" [type]="!showPassword? 'password' : 'text'" name="password" id="password"
                                           class="form-control" placeholder="Password..." #pass="ngModel" required
                                           [pattern]="passwordRegex">
-                                          <span toggle="#input-pwd" [class]="showPassword? 'fa-eye-slash': ''" class="fa fa-fw fa-eye field-icon toggle-password" (click)="showPassword = !showPassword"></span>
+                                          <span toggle="#input-pwd" [class]="showPassword? 'fa-eye-slash': ''" class="fa fa-fw fa-eye field-icon toggle-password" 
+                                          (click)="showPassword = !showPassword" placement="bottom" [ngbTooltip]="!showPassword ? 'Show Password' : 'Hide Password'"></span>
                                   </div>
                                   <div class="text-center text-danger"
                                       *ngIf="pass.invalid && (pass.dirty || pass.touched)">
