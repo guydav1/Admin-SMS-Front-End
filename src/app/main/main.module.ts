@@ -1,20 +1,26 @@
-import { MainRoutingModule } from './main-routing.module';
-import { FilterPipe } from './../filter.pipe';
+import { SpinnerComponent } from './../shared/spinner/spinner.component';
+import { FooterComponent } from './../shared/footer/footer.component';
+import { NavbarComponent } from './../shared/navbar/navbar.component';
+import { SidebarComponent } from './../shared/sidebar/sidebar.component';
+import { MainLayoutComponent } from './main-layout.component';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './../app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { UserComponent } from '../user/user.component';
-import { DashboardComponent } from '../dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MainRoutingModule } from './main-routing.module';
+import { FilterPipe } from './../filter.pipe';
+import { AppRoutingModule } from './../app-routing.module';
+import { UserComponent } from '../user/user.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, UserComponent, FilterPipe],
+  declarations: [MainLayoutComponent, DashboardComponent, UserComponent, FilterPipe, SidebarComponent, NavbarComponent, FooterComponent, SpinnerComponent],
   imports: [
-    CommonModule,BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, MainRoutingModule
+    CommonModule, HttpClientModule, FormsModule, MainRoutingModule
   ]
 })
 export class MainModule { }
