@@ -56,9 +56,10 @@
                                               <i class="material-icons">lock</i>
                                           </span>
                                       </div>
-                                      <input [(ngModel)]="password" type="password" name="password" id="password"
+                                      <input [(ngModel)]="password" [type]="!showPassword? 'password' : 'text'" name="password" id="password"
                                           class="form-control" placeholder="Password..." #pass="ngModel" required
                                           [pattern]="passwordRegex">
+                                          <span toggle="#input-pwd" [class]="showPassword? 'fa-eye-slash': ''" class="fa fa-fw fa-eye field-icon toggle-password" (click)="showPassword = !showPassword"></span>
                                   </div>
                                   <div class="text-center text-danger"
                                       *ngIf="pass.invalid && (pass.dirty || pass.touched)">
