@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpinnerComponent } from './../shared/spinner/spinner.component';
 import { FooterComponent } from './../shared/footer/footer.component';
 import { NavbarComponent } from './../shared/navbar/navbar.component';
@@ -18,9 +19,9 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 
 
 @NgModule({
-  declarations: [MainLayoutComponent, DashboardComponent, UserComponent, FilterPipe, SidebarComponent, NavbarComponent, FooterComponent, SpinnerComponent],
+  declarations: [MainLayoutComponent, DashboardComponent, UserComponent, FilterPipe, SidebarComponent, NavbarComponent, FooterComponent],
   imports: [
-    CommonModule, HttpClientModule, FormsModule, MainRoutingModule
+    CommonModule, HttpClientModule, FormsModule, MainRoutingModule, NgbModule
   ]
 })
 export class MainModule { }

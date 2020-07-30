@@ -5,7 +5,7 @@
   background-size: cover;
   -o-background-size: cover;
   height: 100vh;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .input-group .input-group-text{

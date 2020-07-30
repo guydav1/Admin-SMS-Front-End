@@ -1,3 +1,4 @@
+import { NgbModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from '../services/user.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -19,11 +20,13 @@ export class UserComponent implements OnInit {
   };
 
   id: string;
+  loading: boolean = false;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -38,6 +41,7 @@ export class UserComponent implements OnInit {
 
 
   onSubmit() {
+    this.loading = true;
     // this.userService.update(this.user.id, {
     //   userName: this.user.userName,
     //   password: 
@@ -47,11 +51,19 @@ export class UserComponent implements OnInit {
   deleteUser() {
     this.userService.delete(this.user.id).subscribe(
       (res) => {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/']);
       },
       (err) => {
         console.log(err);
       }
     );
+  }
+
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      console.log("Delete User");
+      this.deleteUser();
+    });
   }
 }

@@ -13,4 +13,7 @@
 
 
 
-<router-outlet></router-outlet>
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div contentAnimate *ngIf="!isLoading">
+  <router-outlet></router-outlet>
+</div>

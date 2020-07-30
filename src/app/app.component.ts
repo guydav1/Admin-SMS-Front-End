@@ -21,26 +21,7 @@ export class AppComponent implements OnInit {
   isLoading: boolean;
 
   constructor(private router: Router) {
-    // Removing Sidebar, Navbar, Footer for Documentation, Error and Auth pages
-    router.events.forEach((event) => {
-      if (event instanceof NavigationStart) {
-        if (
-          event['url'] == '/users/login' ||
-          event['url'] == '/users/register' ||
-          event['url'] == '/error-pages/404' ||
-          event['url'] == '/error-pages/500'
-        ) {
-          this.showSidebar = false;
-          this.showNavbar = false;
-          this.showFooter = false;
-        } else {
-          this.showSidebar = true;
-          this.showNavbar = true;
-          this.showFooter = true;
-        }
-      }
-    });
-
+    
     // Spinner for lazyload modules
     router.events.forEach((event) => {
       if (event instanceof RouteConfigLoadStart) {
