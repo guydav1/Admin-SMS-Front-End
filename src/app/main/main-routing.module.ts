@@ -7,15 +7,22 @@ import { UserComponent } from './user/user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-
-  { 
-      path: '', component: MainLayoutComponent, canActivate: [AuthGuard],
-      children: [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'users', component: DashboardComponent },
-  { path: 'users/:id', component: UserComponent },
-      ]
-  }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  {
+    path: 'dashboard',
+    component: MainLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [{ path: '', component: DashboardComponent }],
+  },
+  {
+    path: 'users',
+    component: MainLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: ':id', component: UserComponent },
+    ],
+  },
 ];
 
 @NgModule({
