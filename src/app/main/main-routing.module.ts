@@ -1,3 +1,4 @@
+import { UserListComponent } from './user-list/user-list.component';
 import { AuthGuard } from './../auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -19,7 +20,7 @@ const routes: Routes = [
     component: MainLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: DashboardComponent },
+      { path: '', component: UserListComponent },
       { path: ':id', component: UserComponent },
     ],
   },

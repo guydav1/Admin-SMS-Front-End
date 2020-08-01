@@ -8,22 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  users: any[] = [];
-  error:string = null;
-  loading: boolean = true;
 
-  searchInput: string = '';
-  constructor(private userService : UserService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.userService.getAll().subscribe(res=>{
-      this.users = this.users.concat(res);
-      this.loading = false;
-    }, err=> {
-      console.log(err);
-      this.error = err.message
-      this.loading = false;
-    })    
   }
 
 

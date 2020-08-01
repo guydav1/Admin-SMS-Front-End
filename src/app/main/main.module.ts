@@ -12,10 +12,11 @@ import { MainRoutingModule } from './main-routing.module';
 import { FilterPipe } from './../filter.pipe';
 import { UserComponent } from './user/user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 @NgModule({
-  declarations: [MainLayoutComponent, DashboardComponent, UserComponent, FilterPipe, SidebarComponent, NavbarComponent, FooterComponent],
+  declarations: [MainLayoutComponent, DashboardComponent, UserComponent, FilterPipe, SidebarComponent, NavbarComponent, FooterComponent, UserListComponent],
   imports: [
     CommonModule, HttpClientModule, FormsModule, MainRoutingModule, NgbModule
   ]
