@@ -1,61 +1,70 @@
-<form (ngSubmit)="onSubmit()" #f="ngForm">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Username</label>
-      <input type="text" class="form-control" id="userName" name="userName" placeholder="Username"
-        [(ngModel)]="user.userName">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="Password" ngModel>
-    </div>
+<div class="card">
+  <div class="card-header bg-transparent">
+    <div class="card-icon"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></div>
+    <h4 class="card-title">Edit User</h4>
   </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputAddress">Email</label>
-      <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email">
+  <div class="card-body">
+    
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Username</label>
+          <input type="text" class="form-control" id="userName" name="userName" placeholder="Username"
+            [(ngModel)]="user.userName">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Password" ngModel>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Email</label>
+          <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputAddress2">Phone Number</label>
+          <input type="tel" class="form-control" id="mobile" name="phone" [(ngModel)]="user.phone">
+        </div>
+      </div>
+      <div class="form-row align-items-center">
+        <div class="form-group col-md-6">
+          <label for="inputCity">Name</label>
+          <input type="text" class="form-control" id="inputCity" name="name" [(ngModel)]="user.name">
+        </div>
+        <div class="form-check ml-2 my-auto">
+          <input class="form-check-input" type="checkbox" id="gridCheck" name="sms" [(ngModel)]="user.sms">
+          <label class="form-check-label" for="gridCheck">
+            Subscribe to SMS Notifications
+          </label>
+    
+    
+        </div>
+      </div>
+      <div class="row float-right">
+      <button type="submit" class="btn btn-primary mx-1">Update</button>
+      <button class="btn btn-danger" (click)="open(content)">Delete User</button>
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputAddress2">Phone Number</label>
-      <input type="tel" class="form-control" id="mobile" name="phone" [(ngModel)]="user.phone">
-    </div>
+      
+      <!-- Delete modal -->
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-title">Profile deletion</h4>
+          <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Are you sure you want to delete <span class="text-primary">{{user.userName}}</span> profile?</strong></p>
+          <p>All information associated to this user profile will be permanently deleted.
+          <span class="text-danger">This operation can not be undone.</span>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">Cancel</button>
+          <button type="button" class="btn btn-danger" (click)="modal.close()">Delete</button>
+        </div>
+      </ng-template>
+    </form>
   </div>
-  <div class="form-row align-items-center">
-    <div class="form-group col-md-6">
-      <label for="inputCity">Name</label>
-      <input type="text" class="form-control" id="inputCity" name="name" [(ngModel)]="user.name">
-    </div>
-    <div class="form-check ml-2 my-auto">
-      <input class="form-check-input" type="checkbox" id="gridCheck" name="sms" [(ngModel)]="user.sms">
-      <label class="form-check-label" for="gridCheck">
-        Subscribe to SMS Notifications
-      </label>
-
-
-    </div>
-  </div>
-  <div class="row float-right">
-  <button type="submit" class="btn btn-primary mx-1">Update</button>
-  <button class="btn btn-danger" (click)="open(content)">Delete User</button>
 </div>
-  
-  <!-- Delete modal -->
-  <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-title">Profile deletion</h4>
-      <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p><strong>Are you sure you want to delete <span class="text-primary">{{user.userName}}</span> profile?</strong></p>
-      <p>All information associated to this user profile will be permanently deleted.
-      <span class="text-danger">This operation can not be undone.</span>
-      </p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">Cancel</button>
-      <button type="button" class="btn btn-danger" (click)="modal.close()">Delete</button>
-    </div>
-  </ng-template>
-</form>

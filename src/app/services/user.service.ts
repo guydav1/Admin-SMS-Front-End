@@ -49,7 +49,7 @@ export class UserService {
   logout() {
     localStorage.removeItem('user');
     this.userSubject.next(null);
-    this.router.navigateByUrl('/users/login');
+    this.router.navigateByUrl('/u/login');
   }
 
   getAll() {
