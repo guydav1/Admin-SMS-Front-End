@@ -40,3 +40,11 @@ li.nav-item.active {
     font-weight: 400;
     line-height: 30px;
 }
+
+@media (min-width: 768px) {
+    .collapse.dont-collapse-sm {
+      display: block;
+      /* height: auto !important; */
+      visibility: visible;
+    }
+  }
