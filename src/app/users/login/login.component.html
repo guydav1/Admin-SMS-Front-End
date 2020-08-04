@@ -3,7 +3,7 @@
     <div class="col-md-3 mx-auto my-auto ">
       <div class="card">
         <ngb-alert *ngIf="error !== null" type="danger" [dismissible]="false">
-          <span *ngIf="error === 500">Username or Password were incorrect</span>
+          <span *ngIf="error === 400">Username or Password were incorrect</span>
           <span *ngIf="error === 0">Unexpected Error, Please try again later</span>
         </ngb-alert>
         <h2 class="card-title">Login</h2>

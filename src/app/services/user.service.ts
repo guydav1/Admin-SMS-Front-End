@@ -80,9 +80,18 @@ export class UserService {
   getProfile(id: string) {
     return this.http
       .get<User>(environment.apiUrl + '/users/' + id)
-      .pipe(
-        map(this.mapUser)
-      );
+      // .pipe(
+      //   map(x=> {
+      //     return {
+      //       userName: x.userName,
+      //       password: x.password,
+      //       smsNotify: x.smsNotify,
+      //       email: x.email,
+      //       name: x.name,
+            
+      //     }
+      //   })
+      // );
   }
 
   update(id:string, newData:Partial<User>) {
@@ -90,6 +99,8 @@ export class UserService {
       if (id == this.userValue._id) {
         // update local storage
         const user = { ...this.userValue, ...newData };
+
+        
         localStorage.setItem('user', JSON.stringify(user));
 
         // publish updated user to subscribers

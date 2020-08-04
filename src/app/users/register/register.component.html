@@ -2,6 +2,10 @@
   <div class="row h-100 text-center">
       <div class="col-md-3 mx-auto my-auto ">
           <div class="card">
+            <ngb-alert *ngIf="error !== null" type="danger" [dismissible]="false">
+                <span *ngIf="error.status === 400">{{error.error.message}}</span>
+                <span *ngIf="error.status === 0">Unexpected Error, Please try again later</span>
+              </ngb-alert>
               <h2 class="card-title">Register</h2>
               <div class="card-body">
                   <div class="row">
@@ -98,7 +102,8 @@
                               </div>
                               <div class="text-center">
                                   <button type="submit" class="btn btn-primary btn-round mt-4"
-                                      [disabled]="loading || !f.valid">Register</button>
+                                      [disabled]="loading || !f.valid">Register
+                                      <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></button>
                               </div>
                               <div class="text-center pt-2">
                                   Already have an account? <a routerLink="../login">Login</a>.

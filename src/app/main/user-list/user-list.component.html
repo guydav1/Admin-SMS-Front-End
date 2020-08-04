@@ -1,50 +1,46 @@
-<div class="content">
-    <div *ngIf="loading" class="d-flex p-2">
-      <div class="spinner-border mx-auto" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+<div *ngIf="loading" class="d-flex p-2">
+  <div class="spinner-border mx-auto" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div class="container-fluid">
+  
+  <div class="card" *ngIf="!error && !loading">
+    <div class="card-header bg-transparent">
+      <div class="card-icon"><i class="fa fa-list fa-2x" aria-hidden="true"></i></div>
+      <h4 class="card-title">Users List</h4>
     </div>
-    <div class="container-fluid">
-      <div class="row" *ngIf="!error && !loading">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header card-header-primary">
-              <h4 class="card-title">TITLE</h4>
-            </div>
-            <div class="card-body">
+    <div class="card-body">
   
-              <input type="text" placeholder="Search" name="search" [(ngModel)]="searchInput">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Subscribed</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let user of users | filter:searchInput; index as i" [routerLink]="'/users/' + user.id">
-                    <th scope="row">{{i+1}}</th>
-                    <td>{{user.name}}</td>
-                    <td>{{user.userName}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.phone}}</td>
-                    <td>{{user.sms}}</td>
-                  </tr>
-                </tbody>
-              </table>
-  
-            </div>
-          </div>
-        </div>
-      </div>
-      <div *ngIf="error" class="alert alert-danger text-center">
-        {{error}}
+      <input class="form-control" type="text" placeholder="Search Username..." name="search" [(ngModel)]="searchInput">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Subscribed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users | filter:searchInput; index as i" [routerLink]="'/users/' + user.id">
+              <th scope="row">{{i+1}}</th>
+              <td>{{user.name}}</td>
+              <td>{{user.userName}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.phone}}</td>
+              <td>{{user.sms}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
   
     </div>
   </div>
-  
+</div>
+<div *ngIf="error" class="alert alert-danger text-center">
+  {{error}}
+</div>

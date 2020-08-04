@@ -6,13 +6,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(arr: any[], filterValue: string): any[] {
-    
 
     if(arr.length === 0 || filterValue === ''){
       return arr;
     }
 
-    return arr.filter(e => (e.name as string).toLowerCase().includes(filterValue.toLowerCase()))
+    return arr.filter(e => (e.userName as string).toLowerCase().includes(filterValue.toLowerCase()))
 
   }
 
