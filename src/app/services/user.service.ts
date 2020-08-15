@@ -113,10 +113,6 @@ export class UserService {
     return this.http.post(environment.apiUrl + '/post/' + id, {message: message}, {responseType: 'text'});
   }
 
-  sendAll(message:string) {
-    return this.http.post(environment.apiUrl + '/post', {message: message}, {responseType: 'text'});
-  }
-
   mapUser(user){
     return {
       email: user.email,
