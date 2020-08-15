@@ -8,11 +8,8 @@ export class MainLayoutComponent {
 
   constructor(private router: Router, private userService: UserService) {
 
-    // router.navigate(['/dashboard'])
-    // redirect to home if already logged in
     if (!this.userService.userValue) {
-      // this.router.navigate(['/users/login']);
-      console.log('no user');
+      this.router.navigate(['/u/login']);
     }
   }
 }

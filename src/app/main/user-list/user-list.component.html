@@ -4,15 +4,19 @@
   </div>
 </div>
 <div class="container-fluid">
-  
+
   <div class="card" *ngIf="!error && !loading">
     <div class="card-header bg-transparent">
       <div class="card-icon"><i class="fa fa-list fa-2x" aria-hidden="true"></i></div>
-      <h4 class="card-title">Users List</h4>
+      <h4 class="card-title w-50">Users List</h4>
+      
     </div>
     <div class="card-body">
-  
-      <input class="form-control" type="text" placeholder="Search Username..." name="search" [(ngModel)]="searchInput">
+      <div class="form-inline">
+        <input class="form-control w-75" type="text" placeholder="Search Username..." name="search" [(ngModel)]="searchInput">
+        <i class="fa fa-plus-square fa-2x text-success ml-auto hover-cursor" aria-hidden="true" placement="bottom" ngbTooltip="Add User" (click)="openRegister()"></i>
+
+      </div>
       <div class="table-responsive">
         <table class="table table-hover">
           <thead>
@@ -37,7 +41,7 @@
           </tbody>
         </table>
       </div>
-  
+
     </div>
   </div>
 </div>

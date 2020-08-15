@@ -9,7 +9,6 @@ const usersModule = () =>
 const mainModule = () => import('./main/main.module').then((x) => x.MainModule);
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '', loadChildren: mainModule },
   { path: 'u', loadChildren: usersModule },
 ];

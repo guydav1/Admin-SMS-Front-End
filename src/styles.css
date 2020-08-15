@@ -31,39 +31,6 @@ h6 {
   line-height: 1.5em;
 }
 
-/* div {
-  display: block;
-}
-
-li {
-  display: list-item;
-  text-align: -webkit-match-parent;
-}
-
-ul {
-  display: block;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
-} */
-
-/* @media (max-width: 991px) {
-
-  body,
-  html {
-    overflow-x: hidden;
-  }
-}
-
-@media (max-width: 991px) {
-  body {
-    position: relative;
-  }
-} */
-
 
 .card-icon {
   background: linear-gradient(60deg,#ec407a,#d81b60);
@@ -75,4 +42,8 @@ ul {
   margin-right: 20px;
   float: left;
   color: #fff;
+}
+
+.hover-cursor{
+  cursor: pointer;
 }

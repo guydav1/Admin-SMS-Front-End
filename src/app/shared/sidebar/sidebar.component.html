@@ -12,15 +12,21 @@
   <div class="card mb-3 border-0">
     <ul class="nav">
       <li class="nav-item w-100" [routerLinkActive]="['active']">
-        <a class="nav-link" routerLink="/dashboard">
-          <i class="material-icons">dashboard</i>
-          <p>Dashboard</p>
+        <a class="nav-link" routerLink="/profile">
+          <i class="material-icons">face</i>
+          <p>Profile</p>
         </a>
       </li>
-      <li class="nav-item w-100" [routerLinkActive]="['active']">
+      <li class="nav-item w-100" [routerLinkActive]="['active']" *ngIf="isAdmin">
         <a class="nav-link" routerLink="/users">
           <i class="material-icons">group</i>
           <p>Users</p>
+        </a>
+      </li>
+      <li class="nav-item w-100" [routerLinkActive]="['active']" *ngIf="isAdmin">
+        <a class="nav-link" routerLink="/sms">
+          <i class="material-icons">sms</i>
+          <p>Send SMS</p>
         </a>
       </li>
     </ul>

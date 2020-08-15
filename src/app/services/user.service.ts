@@ -36,11 +36,11 @@ export class UserService {
     }
 
     return this.http
-      .post<User>(environment.apiUrl + '/users/login', loginData)
+      .post<{user: User, token: string}>(environment.apiUrl + '/users/login', loginData)
       .pipe(
         map((user) => {
-          localStorage.setItem('user', JSON.stringify(user));
-          this.userSubject.next(user);
+          localStorage.setItem('user', JSON.stringify({...user.user, token: user.token}));
+          this.userSubject.next({...user.user, token: user.token});
           return user;
         })
       );
@@ -65,33 +65,22 @@ export class UserService {
     );
   }
 
-  getUser(token: string) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + token,
-    });
-    return this.http
-      .get<User>(environment.apiUrl + '/users/me', { headers: headers })
-      .pipe(
-        map(this.mapUser)
-      );
-  }
+  getUser(id: string) {
 
-  getProfile(id: string) {
     return this.http
       .get<User>(environment.apiUrl + '/users/' + id)
       // .pipe(
-      //   map(x=> {
-      //     return {
-      //       userName: x.userName,
-      //       password: x.password,
-      //       smsNotify: x.smsNotify,
-      //       email: x.email,
-      //       name: x.name,
-            
-      //     }
-      //   })
+      //   map(this.mapUser)
       // );
+  }
+
+
+  addUser(user: Partial<User>){
+    return this.http.post(environment.apiUrl + '/users/add', user);
+  }
+
+  getProfile() {
+    return this.http.get<User>(environment.apiUrl + '/users/me');
   }
 
   update(id:string, newData:Partial<User>) {
@@ -120,7 +109,15 @@ export class UserService {
     }));
   }
 
-  private mapUser(user){
+  send(id:string, message:string) {
+    return this.http.post(environment.apiUrl + '/post/' + id, {message: message}, {responseType: 'text'});
+  }
+
+  sendAll(message:string) {
+    return this.http.post(environment.apiUrl + '/post', {message: message}, {responseType: 'text'});
+  }
+
+  mapUser(user){
     return {
       email: user.email,
       userName: user.userName,
@@ -128,6 +125,7 @@ export class UserService {
       phone: user.mobile,
       sms: user.smsNotify,
       id: user._id,
+      isAdmin: user.isAdmin
     };
   }
 

@@ -1,3 +1,6 @@
+import { ProfileComponent } from './profile/profile.component';
+import { AuthAdminGuard } from './../auth-admin.guard';
+import { SendSmsComponent } from './send-sms/send-sms.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AuthGuard } from './../auth.guard';
 import { NgModule } from '@angular/core';
@@ -5,23 +8,30 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainLayoutComponent } from './main-layout.component';
 import { UserComponent } from './user/user.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'profile', pathMatch: 'full' },
   {
-    path: 'dashboard',
+    path: 'profile',
     component: MainLayoutComponent,
     canActivate: [AuthGuard],
-    children: [{ path: '', component: DashboardComponent }],
+    children: [{ path: '', component: ProfileComponent }],
   },
   {
     path: 'users',
     component: MainLayoutComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AuthAdminGuard],
     children: [
       { path: '', component: UserListComponent },
       { path: ':id', component: UserComponent },
+    ],
+  },
+  {
+    path: 'sms',
+    component: MainLayoutComponent,
+    canActivate: [AuthGuard, AuthAdminGuard],
+    children: [
+      { path: '', component: SendSmsComponent },
     ],
   },
 ];

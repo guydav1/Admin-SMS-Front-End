@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
     this.route.params.subscribe((param: Params) => {
       this.id = param['id'];
 
-      this.userService.getProfile(this.id).subscribe((user) => {
+      this.userService.getUser(this.id).subscribe((user) => {
         this.user = user;
       });
     });
@@ -38,7 +38,6 @@ export class UserComponent implements OnInit {
 
   onSubmit() {
     this.loading = true;
-    // console.log(this.user);
     this.userService.update(this.id, 
       {
               userName: this.user.userName,

@@ -11,12 +11,14 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { FilterPipe } from './../filter.pipe';
 import { UserComponent } from './user/user.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { SendSmsComponent } from './send-sms/send-sms.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserAddComponent } from './user-add/user-add.component';
 
 
 @NgModule({
-  declarations: [MainLayoutComponent, DashboardComponent, UserComponent, FilterPipe, SidebarComponent, NavbarComponent, FooterComponent, UserListComponent],
+  declarations: [MainLayoutComponent, UserComponent, FilterPipe, SidebarComponent, NavbarComponent, FooterComponent, UserListComponent, SendSmsComponent, ProfileComponent, UserAddComponent],
   imports: [
     CommonModule, HttpClientModule, FormsModule, MainRoutingModule, NgbModule
   ]

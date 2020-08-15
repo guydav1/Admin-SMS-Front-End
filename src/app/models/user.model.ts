@@ -6,6 +6,8 @@ export class User {
   mobile: string;
   name: string;
   smsNotify: boolean;
+  isAdmin: boolean;
+  createdAt: string;
 
   token: string;
 }

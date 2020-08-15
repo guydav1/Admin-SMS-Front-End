@@ -7,20 +7,13 @@ import { Subscription } from 'rxjs';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit, OnDestroy {
-  username: string;
-  private userSub: Subscription;
+export class NavbarComponent implements OnInit {
+  username: string = 'test';
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.userSub = this.userService.user.subscribe((user) => {
-      if (user) this.username = user.userName;
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.userSub.unsubscribe();
+   this.username = this.userService.userValue.userName;
   }
 
   logout() {

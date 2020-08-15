@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-4">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="textBody">Message:</label>
+        <textarea [(ngModel)]="message" name="message" id="textBody" rows="3" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="sending">Send</button>
+    </form>
+  </div>
+  <div class="col-md-6 ml-auto">
+    <div class="table-responsive">
+      <div>
+        <h4 class="text-info">Subscribed users:</h4>
+        <h6 class="text-secondary">Select which of the following will recieve the message.</h6>
+      </div>
+      <div *ngIf="sending">
+        <h6 class="text-warning">Sending messages</h6>
+      </div>
+      <table class="table table-sm table-borderless">
+        <thead>
+          <tr>
+            <th scope="col"><input type="checkbox" name="call" placement="left" ngbTooltip="Check All" [(ngModel)] = checkAll></th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let user of users; index as i">
+            <tr *ngIf="user.sms">
+              <td><input type="checkbox" id="in{{i}}"[checked]="checkAll" ngModel></td>
+              <td>{{user.name}}</td>
+              <td>{{user.phone}}</td>
+              <td><span *ngIf="user.loading" class="spinner-border spinner-border-sm"></span></td>
+              <td *ngIf="!user.loading && user.sent"><span >V</span></td>
+              <td *ngIf="!user.loading && !user.sent"><span >X</span></td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

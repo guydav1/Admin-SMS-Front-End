@@ -1,0 +1,16 @@
+<div class="container-fluid">
+
+  <div class="card w-25">
+    <div class="card-header bg-transparent">
+      <div class="card-icon"><i class="fa fa-user fa-2x" aria-hidden="true"></i></div>
+      <h4 class="card-title">User Profile</h4>
+    </div>
+    <div class="card-body">
+       <p>Name: {{user.name}}</p>
+       <p>Username: {{user.userName}}</p>
+       <p>User Since: {{user.createdAt | date}}</p>
+       <p>Email: {{user.email}}</p>
+       <p>Phone: {{user.mobile}}</p>
+    </div>
+  </div>
+</div>

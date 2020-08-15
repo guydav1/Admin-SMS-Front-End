@@ -1,7 +1,11 @@
+import { UserAddComponent } from './../user-add/user-add.component';
+import { RegisterComponent } from './../../users/register/register.component';
 import { Observable } from 'rxjs';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-user-list',
@@ -14,7 +18,7 @@ export class UserListComponent implements OnInit {
   loading: boolean = true;
 
   searchInput: string = '';
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.userService.getAll().subscribe(
@@ -30,23 +34,13 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  // search = (text$: Observable<string>) =>
-  //   text$.pipe(
-  //     debounceTime(200),
-  //     distinctUntilChanged(),
-  //     map((term) =>
-  //       term.length < 2
-  //         ? []
-  //         : this.users
-  //             .filter(
-  //               (v) => v.userName.toLowerCase().indexOf(term.toLowerCase()) > -1
-  //             )
-  //             .slice(0, 10).map(v=> v.userName)
-  //     )
-  //   );
+  openRegister() {
+    const modalRef = this.modalService.open(UserAddComponent, {size: 'md'}).result.then(user =>{
+      if(user){
+        this.users.push(user);
+      }
+    }, reason => {});
+    // modalRef.componentInstance.name = 'World';
+  }
 
-  // formatter = (result: any) => {
-  //   console.log(result);
-  //   return result.userName;
-  // };
 }
