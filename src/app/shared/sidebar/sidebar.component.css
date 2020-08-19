@@ -1,6 +1,6 @@
 li.nav-item.active {
-    background-color: #e91e63;
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(233,30,99,.4);
+    background-color: #1ec0e9;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(30, 61, 233, 0.4);
 }
 
 .nav li.active>a, .nav li.active>a i {

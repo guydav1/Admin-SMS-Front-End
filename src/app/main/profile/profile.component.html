@@ -1,16 +1,79 @@
-<div class="container-fluid">
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header bg-transparent">
+        <div class="card-icon"><i class="fa fa-user fa-2x" aria-hidden="true"></i></div>
+        <h4 class="card-title">User Profile</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
 
-  <div class="card w-25">
-    <div class="card-header bg-transparent">
-      <div class="card-icon"><i class="fa fa-user fa-2x" aria-hidden="true"></i></div>
-      <h4 class="card-title">User Profile</h4>
+          <table class="table table-borderless">
+            <tbody>
+
+              <tr>
+                <td>Name:</td>
+                <td>{{user.name}}</td>
+              </tr>
+              <tr>
+                <td>Username:</td>
+                <td>{{user.userName}}</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td>{{user.email}}</td>
+              </tr>
+              <tr>
+                <td>Phone:</td>
+                <td>{{user.mobile}}</td>
+              </tr>
+              <tr>
+                <td>User Since:</td>
+                <td>{{user.createdAt | date}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
     </div>
-    <div class="card-body">
-       <p>Name: {{user.name}}</p>
-       <p>Username: {{user.userName}}</p>
-       <p>User Since: {{user.createdAt | date}}</p>
-       <p>Email: {{user.email}}</p>
-       <p>Phone: {{user.mobile}}</p>
+
+  </div>
+
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header bg-transparent">
+        <div class="card-icon"><i class="fa fa-cloud fa-2x" aria-hidden="true"></i></div>
+        <h4 class="card-title">Weather</h4>
+      </div>
+      <div class="card-body">
+        <google-chart type="Line" [data]="dailyWeather | async" [options]="chartOptions" style="width: 100%;"
+          [dynamicResize]="true">
+        </google-chart>
+      </div>
     </div>
   </div>
 </div>
+
+  <div class="card mt-5">
+    <div class="card-header bg-transparent">
+      <div class="card-icon"><i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i></div>
+      <h4 class="card-title">News</h4>
+    </div>
+    <div class="card-body" *ngIf="(news | async) as news">
+
+      <div class="row">
+
+        <div class="card col-md-3 text-right p-3" *ngFor="let article of news.articles">
+          <img [src]="article.urlToImage" class="card-img-top" style="width:100%; height:25vh; object-fit: cover;">
+          <div class="card-body rtl">
+            <h5 class="card-title"><a [href]="article.url" target="_blank">{{article.title}}</a></h5>
+            <p class="card-text">{{article.description}}</p>
+          </div>
+        </div>
+
+      </div>
+
+      
+    </div>
+  </div>

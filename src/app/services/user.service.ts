@@ -99,6 +99,13 @@ export class UserService {
     }))
   }
 
+  updateOwn(newData: Partial<User>) {
+    return this.http.patch(environment.apiUrl + '/users/me', newData).pipe(map(x=> {
+      console.log(x);
+      return x;
+    }))
+  }
+
 
   delete(id:string) {
     return this.http.delete(environment.apiUrl + '/users/delete/' + id).pipe(map(x=>{

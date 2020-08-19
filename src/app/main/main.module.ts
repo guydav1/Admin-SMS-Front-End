@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { MainRoutingModule } from './main-routing.module';
 import { FilterPipe } from './../filter.pipe';
@@ -20,7 +21,7 @@ import { UserAddComponent } from './user-add/user-add.component';
 @NgModule({
   declarations: [MainLayoutComponent, UserComponent, FilterPipe, SidebarComponent, NavbarComponent, FooterComponent, UserListComponent, SendSmsComponent, ProfileComponent, UserAddComponent],
   imports: [
-    CommonModule, HttpClientModule, FormsModule, MainRoutingModule, NgbModule
+    CommonModule, HttpClientModule, FormsModule, MainRoutingModule, NgbModule, GoogleChartsModule
   ]
 })
 export class MainModule { }

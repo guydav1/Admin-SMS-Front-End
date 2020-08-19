@@ -4,3 +4,12 @@
         margin-left: 20px;
     }
 }
+
+.logout {
+    cursor: pointer; 
+    color:black
+}
+
+.logout:hover {
+    color:red
+}

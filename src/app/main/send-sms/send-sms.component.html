@@ -1,44 +1,60 @@
-<div class="row">
-  <div class="col-md-4">
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="textBody">Message:</label>
-        <textarea [(ngModel)]="message" name="message" id="textBody" rows="3" class="form-control"></textarea>
+<div class="row bg-white border border-black py-5">
+  <div class="col-md-4 mt-3">
+    <div class="card">
+      <div class="card-header bg-transparent">
+        <div class="card-icon"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></div>
+        <h4 class="card-title">Message</h4>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="sending">Send</button>
-    </form>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="textBody">Write a message to send:</label>
+            <textarea [(ngModel)]="message" name="message" id="textBody" rows="3" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="sending">Send</button>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6 ml-auto">
-    <div class="table-responsive">
-      <div>
-        <h4 class="text-info">Subscribed users:</h4>
-        <h6 class="text-secondary">Select which of the following will recieve the message.</h6>
+  <div class="col-md-6 mt-3">
+    <div class="card">
+      <div class="card-header bg-transparent">
+        <div class="card-icon"><i class="fa fa-list fa-2x" aria-hidden="true"></i></div>
+        <h4 class="card-title">Subscribed Users</h4>
       </div>
-      <div *ngIf="sending">
-        <h6 class="text-warning">Sending messages</h6>
+      <div class="card-body">
+        <div class="table-responsive">
+          <div>
+            <h6 class="text-secondary">Select which of the following will recieve the message.</h6>
+          </div>
+          <div *ngIf="sending">
+            <h6 class="text-warning">Sending messages</h6>
+          </div>
+          <table class="table table-sm table-borderless">
+            <thead>
+              <tr>
+                <th scope="col"><input type="checkbox" name="call" placement="left" ngbTooltip="Check All"
+                    [(ngModel)]=checkAll></th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let user of users; index as i">
+                <tr *ngIf="user.sms">
+                  <td><input type="checkbox" id="in{{i}}" [checked]="checkAll" ngModel></td>
+                  <td>{{user.name}}</td>
+                  <td>{{user.phone}}</td>
+                  <td><span *ngIf="user.loading" class="spinner-border spinner-border-sm"></span></td>
+                  <td *ngIf="!user.loading && user.sent"><span>V</span></td>
+                  <td *ngIf="!user.loading && !user.sent"><span>X</span></td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <table class="table table-sm table-borderless">
-        <thead>
-          <tr>
-            <th scope="col"><input type="checkbox" name="call" placement="left" ngbTooltip="Check All" [(ngModel)] = checkAll></th>
-            <th scope="col">Name</th>
-            <th scope="col">Phone Number</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <ng-container *ngFor="let user of users; index as i">
-            <tr *ngIf="user.sms">
-              <td><input type="checkbox" id="in{{i}}"[checked]="checkAll" ngModel></td>
-              <td>{{user.name}}</td>
-              <td>{{user.phone}}</td>
-              <td><span *ngIf="user.loading" class="spinner-border spinner-border-sm"></span></td>
-              <td *ngIf="!user.loading && user.sent"><span >V</span></td>
-              <td *ngIf="!user.loading && !user.sent"><span >X</span></td>
-            </tr>
-          </ng-container>
-        </tbody>
-      </table>
     </div>
   </div>
 </div>
